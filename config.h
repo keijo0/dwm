@@ -1,4 +1,3 @@
-//test
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gapppx    = 8; 	/* gaps */
@@ -10,8 +9,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "mono:size=10", "fontawesome:size=10" };
-static const char dmenufont[]       = "mono:size=10";
+static const char *fonts[]          = { "mono:size=11", "fontawesome:size=11" };
+static const char dmenufont[]       = "mono:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#999999";
 static const char col_gray3[]       = "#eeeeee";
