@@ -22,9 +22,7 @@ static const char col_purple[]	    = "#8987d1";
 //static const char col_white[]	    = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-//	[SchemeNorm] = { col_gray3, col_black, col_black },
-//	[SchemeSel]  = { col_gruv, col_black, col_gray1 },
-	[SchemeNorm] = { col_gray4, col_black, col_black },
+	[SchemeNorm] = { col_purple, col_black, col_black },
 	[SchemeSel]  = { col_black, col_purple, col_purple },
 };
 
@@ -76,11 +74,18 @@ static const char *browsercmd[]  = { "firefox", NULL };
 static const char *musicmd[]  = { "spotify", NULL };
 static const char *dcmd[]  = { "discord", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
+static const char *pavucmd[]  = { "pavucontrol", NULL };
+
 
 /* volume controls */
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+
+
+static const char *volup[] = { "notify-send", "-t", "1000", "VOLUME", "5%+", NULL };
+static const char *voldown[] = { "notify-send", "-t", "1000", "VOLUME", "5%-", NULL };
+static const char *volmute[] = { "notify-send", "-t", "1000", "VOLUME", "MUTED/UNMUTED", NULL };
 
 
 #include "movestack.c"
@@ -91,6 +96,7 @@ static Key keys[] = {
         { MODKEY,                       XK_m,      spawn,          {.v = browsercmd } },
         { MODKEY,                       XK_n,	   spawn,          {.v = dcmd } },
         { MODKEY,                       XK_b,	   spawn,          {.v = filecmd } },
+        { MODKEY,                       XK_v,	   spawn,          {.v = pavucmd } },
         { MODKEY,                       XK_F5,      spawn,          {.v = musicmd } },
 	{ MODKEY,                       XK_o,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -121,6 +127,9 @@ static Key keys[] = {
  	{ MODKEY,                       XK_F12,     spawn,          {.v = upvol   } },
  	{ MODKEY,                       XK_F11,     spawn,          {.v = downvol } },
  	{ MODKEY,                       XK_F10,     spawn,          {.v = mutevol } },
+        { MODKEY,                       XK_F12,     spawn,          {.v = volup  } },
+        { MODKEY,                       XK_F11,     spawn,          {.v = voldown  } },
+        { MODKEY,                       XK_F10,     spawn,          {.v = volmute  } },
  	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
