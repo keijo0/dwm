@@ -17,9 +17,7 @@ static const char col_gray3[]       = "#eeeeee";
 static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#005577";
 static const char col_black[]	    = "#000000";
-//static const char col_gruv[]        = "#ffdb91";
 static const char col_purple[]	    = "#8987d1";
-//static const char col_white[]	    = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_purple, col_black, col_black },
@@ -38,7 +36,6 @@ static const Rule rules[] = {
         { "Virt-manager",  NULL,    NULL,	1 << 4,       0,           -1 },
         { "KeePassXC",  NULL,       NULL,	1 << 2,       0,           -1 },
 	{ "Thunderbird",  NULL,     NULL,       1 << 3,       0,           -1 },
-
 
 };
 
@@ -76,17 +73,13 @@ static const char *dcmd[]  = { "discord", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
 static const char *pavucmd[]  = { "pavucontrol", NULL };
 
-
-/* volume controls */
+/* volume things */
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
-
-
 static const char *volup[] = { "notify-send", "-t", "1000", "VOLUME", "5%+", NULL };
 static const char *voldown[] = { "notify-send", "-t", "1000", "VOLUME", "5%-", NULL };
 static const char *volmute[] = { "notify-send", "-t", "1000", "VOLUME", "MUTED/UNMUTED", NULL };
-
 
 #include "movestack.c"
 static Key keys[] = {
