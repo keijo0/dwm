@@ -90,8 +90,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_n,      spawn,          {.v = browsercmd } },
-        { MODKEY,                       XK_m,	   spawn,          {.v = crmcmd } },
+        { MODKEY,                       XK_m,      spawn,          {.v = browsercmd } },
+        { MODKEY,                       XK_n,	   spawn,          {.v = crmcmd } },
         { MODKEY,                       XK_c,	   spawn,          {.v = dcmd } },
         { MODKEY,                       XK_b,	   spawn,          {.v = filecmd } },
         { MODKEY,                       XK_v,	   spawn,          {.v = pavucmd } },
