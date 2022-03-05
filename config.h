@@ -18,6 +18,7 @@ static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#005577";
 static const char col_black[]	    = "#000000";
 static const char col_purple[]	    = "#8987d1";
+//static const char col_smt[]	    = "#efd3aa";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_purple, col_black, col_black },
@@ -38,7 +39,7 @@ static const Rule rules[] = {
         { "Virt-manager", NULL,     NULL,	1 << 4,       0,           -1 },
         { "KeePassXC",   NULL,      NULL,	1 << 2,       0,           -1 },
 	{ "Thunderbird", NULL,      NULL,       1 << 3,       0,           -1 },
-        { "spotify",     NULL,      NULL,	1 << 9,       0,           -1 },
+        { "Spotify",     NULL,      NULL,	1 << 9,       0,           -1 },
 
 };
 
