@@ -48,7 +48,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -93,8 +93,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_m,      spawn,          {.v = browsercmd } },
-        { MODKEY,                       XK_n,	   spawn,          {.v = crmcmd } },
+        { MODKEY,                       XK_n,      spawn,          {.v = browsercmd } },
+        { MODKEY,                       XK_m,	   spawn,          {.v = crmcmd } },
         { MODKEY,                       XK_c,	   spawn,          {.v = dcmd } },
         { MODKEY,                       XK_b,	   spawn,          {.v = filecmd } },
         { MODKEY,                       XK_v,	   spawn,          {.v = pavucmd } },
