@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gapppx    = 8; 	/* gaps */
+static const unsigned int gapppx    = 4; 	/* gaps */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -18,7 +18,7 @@ static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#005577";
 static const char col_black[]	    = "#000000";
 static const char col_purple[]	    = "#8987d1";
-//static const char col_smt[]	    = "#efd3aa";
+//static const char col_purple[]	    = "#efd3aa";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_purple, col_black, col_black },
@@ -27,7 +27,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 //static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"/*"11", "12", "13", "14", "15", "16", "17", "18", "19", "20"*/ };
+//static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -36,6 +37,7 @@ static const Rule rules[] = {
         { "discord",     NULL,      NULL,	1 << 7,       0,           -1 },
         { "Steam",       NULL,      NULL,	1 << 6,       0,           -1 },
         { "plutonium",   NULL, 	    NULL,   	1 << 5,       0,           -1 },
+        { "lutris",      NULL,      NULL,	1 << 4,       0,           -1 },
         { "Virt-manager", NULL,     NULL,	1 << 4,       0,           -1 },
         { "KeePassXC",   NULL,      NULL,	1 << 2,       0,           -1 },
 	{ "Thunderbird", NULL,      NULL,       1 << 3,       0,           -1 },
