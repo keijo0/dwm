@@ -1,16 +1,18 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gapppx    = 4; 	/* gaps */
-static const unsigned int snap      = 10;       /* snap pixel */
+static const unsigned int gapppx    = 8; 	/* gaps */
+static const unsigned int snap      = 0;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 0;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Bitstream Vera Sans Mono:size=11", "fontawesome:size=11" };
-static const char dmenufont[]       = "Bitstream Vera Sans Mono:size=11";
+static const char *fonts[]          = { "Bitstream Vera Sans Mono:size=9", "fontawesome:size=9" };
+static const char dmenufont[]       = "Bitstream Vera Sans Mono:size=9";
+
+/* colors */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#999999";
 static const char col_gray3[]       = "#eeeeee";
@@ -18,30 +20,26 @@ static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#005577";
 static const char col_black[]	    = "#000000";
 static const char col_purple[]	    = "#8987d1";
-//static const char col_purple[]	    = "#efd3aa";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_purple, col_black, col_black },
-	[SchemeSel]  = { col_black, col_purple, col_purple },
+	[SchemeSel]  = { col_black, col_purple, col_gray1 },
 };
 
 /* tagging */
 //static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
-//static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
+//static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "IIX", "IX", "X" };
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-        { "Firefox",     NULL,      NULL,	1 << 8,       0,           -1 },
         { "chromium",    NULL,      NULL,	1 << 8,       0,           -1 },
         { "discord",     NULL,      NULL,	1 << 7,       0,           -1 },
-        { "Steam",       NULL,      NULL,	1 << 6,       0,           -1 },
+        { "Steam",       NULL,      NULL,	1 << 4,       0,           -1 },
         { "plutonium",   NULL, 	    NULL,   	1 << 5,       0,           -1 },
-        { "lutris",      NULL,      NULL,	1 << 4,       0,           -1 },
         { "Virt-manager", NULL,     NULL,	1 << 4,       0,           -1 },
         { "KeePassXC",   NULL,      NULL,	1 << 2,       0,           -1 },
 	{ "Thunderbird", NULL,      NULL,       1 << 3,       0,           -1 },
-        { "Spotify",     NULL,      NULL,	1 << 9,       0,           -1 },
 
 };
 
