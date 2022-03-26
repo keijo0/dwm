@@ -33,15 +33,15 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" 
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-        { "chromium",    NULL,      NULL,	1 << 8,       0,           -1 },
-        { "discord",     NULL,      NULL,	1 << 7,       0,           -1 },
-        { "Steam",       NULL,      NULL,	1 << 4,       0,           -1 },
-        { "plutonium",   NULL, 	    NULL,   	1 << 5,       0,           -1 },
-        { "Virt-manager", NULL,     NULL,	1 << 4,       0,           -1 },
-        { "KeePassXC",   NULL,      NULL,	1 << 2,       0,           -1 },
-	{ "Thunderbird", NULL,      NULL,       1 << 3,       0,           -1 },
+//        { "chromium",    NULL,      NULL,	1 << 8,       0,           -1 },
+//        { "discord",     NULL,      NULL,	1 << 7,       0,           -1 },
+        { "Steam",       NULL,      NULL,	1 << 8,       0,           -1 },
+//        { "plutonium",   NULL, 	    NULL,   	1 << 5,       0,           -1 },
+//        { "Virt-manager", NULL,     NULL,	1 << 4,       0,           -1 },
+//        { "KeePassXC",   NULL,      NULL,	1 << 2,       0,           -1 },
+//	{ "Thunderbird", NULL,      NULL,       1 << 3,       0,           -1 },
+}; 
 
-};
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
