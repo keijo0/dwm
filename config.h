@@ -18,7 +18,7 @@ static const char col_gray2[]       = "#999999";
 static const char col_gray3[]       = "#eeeeee";
 static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#005577";
-static const char col_black[]	    = "#c0b18b";
+static const char col_black[]	    = "#8987d1";
 static const char col_purple[]	    = "#1f1f1f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -43,8 +43,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-        { "F",      NULL },    /* no layout function means floating behavior */
-       	{ "T",      tile },    /* first entry is default */
+        { "T",      tile },    /* first entry is default */
+	{ "F",      NULL },    /* no layout function means floating behavior */
 	{ "M",      monocle },
 };
 
@@ -61,9 +61,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_purple, "-sf", col_black,  NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_purple, "-nf", col_black, "-sb", col_purple, "-sf", col_black,  NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *crmcmd[] = { "chromium", NULL };
+static const char *vrmcmd[] = { "pavucontrol", NULL };
+
 
 /* volume things */
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
@@ -79,6 +81,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
         { MODKEY,                       XK_m,	   spawn,          {.v = crmcmd } },
+        { MODKEY,                       XK_v,      spawn,          {.v = vrmcmd } },
 	{ MODKEY,                       XK_o,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
