@@ -9,8 +9,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Quicksand:size=9", "fontawesome:size=9" };
-static const char dmenufont[]       = "Quicksand:size=9";
+static const char *fonts[]          = { "IBM Plex mono:size=9", "fontawesome:size=9" };
+static const char dmenufont[]       = "IBM Plex mono:size=9";
 
 /* colors */
 static const char col_gray1[]       = "#222222";
@@ -62,9 +62,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_purple, "-nf", col_black, "-sb", col_purple, "-sf", col_black,  NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 static const char *crmcmd[] = { "chromium", NULL };
 static const char *vrmcmd[] = { "pavucontrol", NULL };
+static const char *sptcmd[] = { "spotify", NULL };
 
 
 /* volume things */
@@ -82,6 +83,7 @@ static Key keys[] = {
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
         { MODKEY,                       XK_m,	   spawn,          {.v = crmcmd } },
         { MODKEY,                       XK_v,      spawn,          {.v = vrmcmd } },
+	{ MODKEY,			XK_F5,	   spawn,	   {.v = sptcmd } },
 	{ MODKEY,                       XK_o,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
