@@ -1,7 +1,6 @@
-/* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gapppx    = 5; 	/* gaps */
-static const unsigned int snap      = 15;       /* snap pixel */
+static const unsigned int gapppx    = 10; 	/* gaps */
+static const unsigned int snap      = 0;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 0;   /* systray spacing */
@@ -12,19 +11,14 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Cousine:size=8", "fontawesome:size=8" };
 static const char dmenufont[]       = "Cousine:size=8";
 
-/* colors */
 static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#999999";
+static const char col_gray2[]       = "#000000";
 static const char col_gray3[]       = "#eeeeee";
 static const char col_gray4[]       = "#dddddd";
-static const char col_cyan[]        = "#005577";
-static const char col_purple[]	    = "#8987d1";
-static const char col_black1[]      = "#000000";
-static const char col_black[]	    = "#1f1f1f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_purple, col_black1, col_gray1 },
-	[SchemeSel]  = { col_gray2, col_gray1, col_gray1 },
+	[SchemeNorm] = { col_gray3, col_gray2, col_gray1 },
+	[SchemeSel]  = { col_gray4, col_gray1, col_gray1 },
 };
 
 /* tagging */
@@ -35,21 +29,17 @@ static const Rule rules[] = {
         { "Steam",       NULL,      NULL,	1 << 8,       1,           -1 },
 }; 
 
-
-/* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[Floating]",      NULL },    /* no layout function means floating behavior */
-        { "[Tiling]",      tile },    /* first entry is default */
-	{ "[Monocle]",      monocle },
+	{ "",      NULL },    /* no layout function means floating behavior */
+        { "",      tile },    /* first entry is default */
+	{ "",      monocle },
 };
 
-/* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -59,27 +49,22 @@ static const Layout layouts[] = {
 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
-/* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_purple, "-sb", col_black, "-sf", col_purple,  NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray2, "-nf", col_gray4, "-sb", col_gray2, "-sf", col_gray4,  NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *crmcmd[] = { "chromium", NULL };
 static const char *vrmcmd[] = { "pavucontrol", NULL };
 static const char *bcmd[] = { "pcmanfm", NULL };
-static const char *ncmd[] = { "nvidia-settings", NULL };
 static const char *scmd[] = { "spotify", NULL };
+static const char *sscmd[] = { "flameshot", "gui", NULL };
 static const char *pcmd[] = { "blueman-manager", NULL };
 static const char *dcmd[] = { "discord", NULL };
-static const char *tcmd[] = { "twitch", NULL };
 
 
 /* volume things */
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
-static const char *volup[] = { "notify-send", "-t", "1000", "VOLUME", "5%+", NULL };
-static const char *voldown[] = { "notify-send", "-t", "1000", "VOLUME", "5%-", NULL };
-static const char *volmute[] = { "notify-send", "-t", "1000", "VOLUME", "MUTED/UNMUTED", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -89,11 +74,10 @@ static Key keys[] = {
         { MODKEY,                       XK_m,	   spawn,          {.v = crmcmd } },
         { MODKEY,                       XK_v,      spawn,          {.v = vrmcmd } },
         { MODKEY,                       XK_b,	   spawn,          {.v = bcmd } },
-        { MODKEY,                       XK_c,	   spawn,          {.v = ncmd } },
         { MODKEY,                       XK_x,     spawn,          {.v = pcmd } },
         { MODKEY,                       XK_z,     spawn,          {.v = dcmd } },
-        { MODKEY,                       XK_n,     spawn,          {.v = tcmd } },
         { MODKEY,                       XK_F5,     spawn,          {.v = scmd } },
+        { MODKEY,                       XK_s,     spawn,          {.v = sscmd } },
 	{ MODKEY,                       XK_o,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -123,9 +107,6 @@ static Key keys[] = {
  	{ MODKEY,                       XK_F12,     spawn,          {.v = upvol   } },
  	{ MODKEY,                       XK_F11,     spawn,          {.v = downvol } },
  	{ MODKEY,                       XK_F10,     spawn,          {.v = mutevol } },
-        { MODKEY,                       XK_F12,     spawn,          {.v = volup  } },
-        { MODKEY,                       XK_F11,     spawn,          {.v = voldown  } },
-        { MODKEY,                       XK_F10,     spawn,          {.v = volmute  } },
  	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
