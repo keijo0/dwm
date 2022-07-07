@@ -1,5 +1,5 @@
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gapppx    = 10; 	/* gaps */
+static const unsigned int gapppx    = 5; 	/* gaps */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -13,8 +13,8 @@ static const char dmenufont[]       = "Cousine:size=8";
 
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#000000";
-static const char col_gray3[]       = "#eeeeee";
-static const char col_gray4[]       = "#dddddd";
+static const char col_gray3[]       = "#beaa9b";
+static const char col_gray4[]       = "#beaa9b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray2, col_gray1 },
@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -37,7 +37,6 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	{ "",      NULL },    /* no layout function means floating behavior */
         { "",      tile },    /* first entry is default */
-	{ "",      monocle },
 };
 
 #define MODKEY Mod4Mask
@@ -92,7 +91,6 @@ static Key keys[] = {
 	{ MODKEY, 	                XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_F1,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_F2,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
